@@ -40,7 +40,7 @@ hi clear
 let colors_name = 'slate'
 
 " General colors
-hi Normal		guifg=#F8F8F8	guibg=#12384B	gui=NONE
+hi Normal		guifg=#F8F8F8	guibg=#0b2431	gui=NONE
 hi NonText		guifg=#A3FEFE					gui=NONE	ctermfg=blue
 
 hi Cursor		guifg=NONE		guibg=#8BA7A7
