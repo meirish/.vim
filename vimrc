@@ -2,11 +2,12 @@
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
 set nocompatible                  " Must come first because it changes other options.
-
-silent! call pathogen#runtime_append_all_bundles()
+filetype off
+call pathogen#runtime_append_all_bundles()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+set modelines=0
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
@@ -48,13 +49,16 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 " UNCOMMENT TO USE
 set tabstop=4                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
+set shiftwidth=4                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 set softtabstop=4
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set list
+set listchars=tab:▸\ ,eol:¬
 
 " Or use vividchalk
 " colorscheme vividchalk
@@ -124,6 +128,7 @@ fun SetAppDir()
     endif
 endfun
 autocmd BufEnter *.py call SetAppDir()
+autocmd GuiEnter * set guifont=Monaco:h14 guioptions-=T columns=120 lines=70 number
 
 if has("gui_running")
   set guioptions-=T
